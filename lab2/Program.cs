@@ -12,18 +12,19 @@ namespace lab2
             Console.WriteLine("Hello, what is your name?");
             name = Console.ReadLine();
             Console.WriteLine("Hello " + name + ", Please give me a number between 1 and 100");
-            integer = int.Parse(Console.ReadLine());
 
-            while (integer > 99 || integer < 2)
+            bool realNumber = Int32.TryParse(Console.ReadLine(), out integer);
+            while (realNumber == false || integer > 99 || integer < 2)
             {
-                Console.WriteLine("I said between 1 and 100! " + name + ", get it together!");
-                Console.WriteLine("Please give me a number between 1 and 100, " + name);
-                integer = int.Parse(Console.ReadLine());
-                if (integer > 1 || integer < 100)
+                Console.WriteLine("Okay... Here's the problem, " + name + ". I need a NUMBER, between 1 and 100...");
+                Console.WriteLine("I'll give you another chance. Give me a number between 1 and 100.");
+                realNumber = Int32.TryParse(Console.ReadLine(), out integer);
+                if (realNumber == true && integer > 1 && integer < 100)
                 {
                     continue;
                 }
             }
+
             oddEven = integer % 2;
 
 
@@ -62,18 +63,18 @@ namespace lab2
                 Console.WriteLine("Please give me a number between 1 and 100");
                 integer = int.Parse(Console.ReadLine());
 
-                while (integer > 99 || integer < 2)
+                realNumber = Int32.TryParse(Console.ReadLine(), out integer);
+                while (realNumber == false || integer > 99 || integer < 2)
                 {
-                    Console.WriteLine("I said between 1 and 100! " + name + ", get it together!");
-                    Console.WriteLine("Please give me a number between 1 and 100, " + name);
-                    integer = int.Parse(Console.ReadLine());
-                    if (integer > 1 || integer < 100)
+                    Console.WriteLine("Okay... Here's the problem, " + name + ". I need a NUMBER, between 1 and 100...");
+                    Console.WriteLine("I'll give you another chance. Give me a number between 1 and 100.");
+                    realNumber = Int32.TryParse(Console.ReadLine(), out integer);
+                    if (realNumber == true && integer > 1 && integer < 100)
                     {
                         continue;
                     }
                 }
                 oddEven = integer % 2;
-
 
                 if (oddEven == 1 && integer > 60)
                 {
@@ -107,10 +108,7 @@ namespace lab2
                     continue;
                 }
 
-
             }
-
-
             while (more != "Y" || more != "YES" || more != "N" || more != "NO")
             {
                 Console.WriteLine("Seriously, " + name + "!!! How am I supposed to understand that? I give up!!!");
@@ -118,5 +116,6 @@ namespace lab2
             }
             Console.WriteLine("Goodbye");
         }
+
     }
 }
