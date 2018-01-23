@@ -107,8 +107,15 @@ namespace lab2
                     continue;
                 }
 
+
             }
 
+
+            while (more != "Y" || more != "YES" || more != "N" || more != "NO")
+            {
+                Console.WriteLine("Seriously, " + name + "!!! How am I supposed to understand that? I give up!!!");
+                break;
+            }
             Console.WriteLine("Goodbye");
         }
     }
