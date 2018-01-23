@@ -61,8 +61,6 @@ namespace lab2
 
 
                 Console.WriteLine("Please give me a number between 1 and 100");
-                integer = int.Parse(Console.ReadLine());
-
                 realNumber = Int32.TryParse(Console.ReadLine(), out integer);
                 while (realNumber == false || integer > 99 || integer < 2)
                 {
@@ -105,15 +103,15 @@ namespace lab2
                 more = Console.ReadLine().ToUpper();
                 if (more == "N" || more == "NO")
                 {
-                    continue;
+                    break;
                 }
 
             }
-            while (more != "Y" || more != "YES" || more != "N" || more != "NO")
+            if (more != "Y" && more != "YES" && more != "N" && more != "NO")
             {
                 Console.WriteLine("Seriously, " + name + "!!! How am I supposed to understand that? I give up!!!");
-                break;
             }
+
             Console.WriteLine("Goodbye");
         }
 
